@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Lightbulb, ChevronLeft, ChevronRight, Copy, Share2, Sparkles, MessageSquareHeart, HeartHandshake, Wand2, MapPin } from 'lucide-react';
+import { Heart, Lightbulb, ChevronLeft, ChevronRight, Copy, Share2, Sparkles, MessageSquareHeart, HeartHandshake, Wand2, MapPin, Sun } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -12,6 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import { SpouseGame } from '@/components/spouse-game';
 import { AIGenerator } from '@/components/ai-generator';
 import { DateGenerator } from '@/components/date-generator';
+import { MTWYJournal } from '@/components/mtwy-journal';
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -100,22 +101,26 @@ export default function Home() {
       </div>
 
       <Tabs defaultValue="lines" className="w-full max-w-3xl flex flex-col items-center">
-        <TabsList className="mb-8 grid w-full max-w-[650px] grid-cols-4 p-1 bg-accent/50 rounded-2xl h-14">
-          <TabsTrigger value="lines" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
-            <MessageSquareHeart className="mr-2 h-4 w-4 hidden sm:inline" />
+        <TabsList className="mb-8 grid w-full max-w-[800px] grid-cols-5 p-1 bg-accent/50 rounded-2xl h-14">
+          <TabsTrigger value="lines" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-[10px] sm:text-xs md:text-sm">
+            <MessageSquareHeart className="mr-2 h-4 w-4 hidden md:inline" />
             Lines
           </TabsTrigger>
-          <TabsTrigger value="ai" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
-            <Wand2 className="mr-2 h-4 w-4 hidden sm:inline" />
-            AI Wingman
+          <TabsTrigger value="ai" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-[10px] sm:text-xs md:text-sm">
+            <Wand2 className="mr-2 h-4 w-4 hidden md:inline" />
+            Wingman
           </TabsTrigger>
-          <TabsTrigger value="game" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
-            <HeartHandshake className="mr-2 h-4 w-4 hidden sm:inline" />
+          <TabsTrigger value="game" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-[10px] sm:text-xs md:text-sm">
+            <HeartHandshake className="mr-2 h-4 w-4 hidden md:inline" />
             Bonding
           </TabsTrigger>
-          <TabsTrigger value="dates" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
-            <MapPin className="mr-2 h-4 w-4 hidden sm:inline" />
+          <TabsTrigger value="dates" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-[10px] sm:text-xs md:text-sm">
+            <MapPin className="mr-2 h-4 w-4 hidden md:inline" />
             Dates
+          </TabsTrigger>
+          <TabsTrigger value="mtwy" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-[10px] sm:text-xs md:text-sm">
+            <Sun className="mr-2 h-4 w-4 hidden md:inline" />
+            MTWY
           </TabsTrigger>
         </TabsList>
 
@@ -213,6 +218,10 @@ export default function Home() {
 
         <TabsContent value="dates" className="w-full focus-visible:outline-none">
           <DateGenerator />
+        </TabsContent>
+
+        <TabsContent value="mtwy" className="w-full focus-visible:outline-none">
+          <MTWYJournal />
         </TabsContent>
       </Tabs>
     </main>

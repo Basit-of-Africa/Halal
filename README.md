@@ -38,12 +38,16 @@ Strengthen your relationship with 100 deep, Islamic-centered questions. Choose h
 ### 📍 Halal Date Ideas
 Randomized date ideas inspired by the Sunnah and halal lifestyle. From "Tahajjud & Tea" to "Sunnah Sports," keep the spark alive meaningfully.
 
+### ☀️ My Today With You (MTWY)
+A personal gratitude journal to log daily reasons why you appreciate your spouse. Based on the Sunnah of showing gratitude to your partner.
+
 ## ✨ Features
 
 - **Favorites System**: Save your favorite lines to your browser's local storage.
 - **Contextual Tips**: Understand the best way to deliver each line respectfully.
 - **Responsive Design**: Optimized for both mobile and desktop users.
 - **Safety First**: AI generated content is filtered to ensure it stays within Islamic boundaries.
+- **Local Persistence**: All your favorites and gratitude entries are stored locally on your device.
 
 ## 🤝 Contributing
 
