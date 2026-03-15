@@ -13,6 +13,7 @@ import { SpouseGame } from '@/components/spouse-game';
 import { AIGenerator } from '@/components/ai-generator';
 import { DateGenerator } from '@/components/date-generator';
 import { MTWYJournal } from '@/components/mtwy-journal';
+import { SOSDialog } from '@/components/sos-dialog';
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -90,7 +91,7 @@ export default function Home() {
   const isFavorite = currentLine ? favorites.includes(currentLine.id) : false;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start bg-background p-4 sm:p-8">
+    <main className="flex min-h-screen flex-col items-center justify-start bg-background p-4 sm:p-8 relative">
       <div className="text-center mb-10 w-full max-w-2xl">
         <div className="flex items-center justify-center gap-2 mb-2">
           <Sparkles className="h-6 w-6 text-primary animate-pulse" />
@@ -224,6 +225,8 @@ export default function Home() {
           <MTWYJournal />
         </TabsContent>
       </Tabs>
+
+      <SOSDialog />
     </main>
   );
 }
