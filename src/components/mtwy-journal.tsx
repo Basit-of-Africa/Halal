@@ -10,14 +10,14 @@ import { useToast } from '@/hooks/use-toast';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
-type GratitudeEntry = {
+type AppreciationEntry = {
   id: string;
   text: string;
   timestamp: number;
 };
 
 export function MTWYJournal() {
-  const [entries, setEntries] = useState<GratitudeEntry[]>([]);
+  const [entries, setEntries] = useState<AppreciationEntry[]>([]);
   const [newReason, setNewReason] = useState('');
   const { toast } = useToast();
 
@@ -39,7 +39,7 @@ export function MTWYJournal() {
   const addEntry = () => {
     if (!newReason.trim()) return;
 
-    const entry: GratitudeEntry = {
+    const entry: AppreciationEntry = {
       id: Math.random().toString(36).substring(7),
       text: newReason.trim(),
       timestamp: Date.now(),
@@ -49,7 +49,7 @@ export function MTWYJournal() {
     setNewReason('');
     toast({
       title: "Alhamdulillah!",
-      description: "Your reason for gratitude has been saved.",
+      description: "Your note of appreciation has been saved.",
     });
   };
 
@@ -78,17 +78,17 @@ export function MTWYJournal() {
         <CardHeader className="bg-primary/5 pb-4">
           <CardTitle className="flex items-center gap-2 text-primary font-headline text-lg">
             <Heart className="h-5 w-5 fill-primary" />
-            Gratitude Journal
+            Appreciation Log
           </CardTitle>
           <p className="text-xs text-muted-foreground">What made you smile about your spouse today?</p>
         </CardHeader>
         <CardContent className="space-y-4 pt-6">
           <div className="flex gap-2">
             <div className="flex-grow space-y-2">
-              <Label htmlFor="gratitude" className="sr-only">Reason for gratitude</Label>
+              <Label htmlFor="appreciation" className="sr-only">Reason for appreciation</Label>
               <Input
-                id="gratitude"
-                placeholder="Today I'm grateful for..."
+                id="appreciation"
+                placeholder="Today I'm appreciative of..."
                 value={newReason}
                 onChange={(e) => setNewReason(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && addEntry()}
@@ -137,7 +137,7 @@ export function MTWYJournal() {
       </Card>
 
       <p className="text-[10px] text-center text-muted-foreground italic px-4">
-        Expressing gratitude strengthens your bond and increases the blessings in your marriage.
+        Expressing appreciation strengthens your bond and increases the blessings in your marriage.
       </p>
     </div>
   );
