@@ -58,7 +58,8 @@ Guidelines:
 - Keep it respectful and within Islamic boundaries (no inappropriate content).
 - Use metaphors related to faith, Islamic history, Quranic concepts, or common Muslim lifestyle.
 - Be creative and avoid the most common clichés unless you can put a fresh spin on them.
-- Provide a "Context Tip" on the best way to deliver the line.`,
+- Provide a "Context Tip" on the best way to deliver the line.
+- Ensure the output is a valid JSON object matching the schema.`,
 });
 
 const generateLineFlow = ai.defineFlow(
@@ -69,7 +70,9 @@ const generateLineFlow = ai.defineFlow(
   },
   async (input) => {
     const { output } = await prompt(input);
-    if (!output) throw new Error('Failed to generate line');
+    if (!output) {
+      throw new Error('AI failed to provide a valid response.');
+    }
     return output;
   }
 );
