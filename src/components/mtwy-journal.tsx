@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -5,7 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Sun, Heart, Trash2, Plus, Calendar } from 'lucide-react';
+import { Sun, Heart, Trash2, Plus, Calendar, CheckCircle2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -55,6 +56,10 @@ export function MTWYJournal() {
 
   const deleteEntry = (id: string) => {
     setEntries(entries.filter((e) => e.id !== id));
+    toast({
+      title: "Entry Removed",
+      description: "The appreciation note has been deleted.",
+    });
   };
 
   const formatDate = (timestamp: number) => {
@@ -124,9 +129,12 @@ export function MTWYJournal() {
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
-                    <div className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground font-medium">
-                      <Calendar className="h-3 w-3" />
-                      {formatDate(entry.timestamp)}
+                    <div className="mt-2 flex items-center justify-between">
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground font-medium">
+                        <Calendar className="h-3 w-3" />
+                        {formatDate(entry.timestamp)}
+                      </div>
+                      <CheckCircle2 className="h-3 w-3 text-primary/40" />
                     </div>
                   </div>
                 ))}
