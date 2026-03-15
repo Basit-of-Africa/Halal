@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Heart, Lightbulb, ChevronLeft, ChevronRight, Copy, Share2, Sparkles, MessageSquareHeart, HeartHandshake } from 'lucide-react';
+import { Heart, Lightbulb, ChevronLeft, ChevronRight, Copy, Share2, Sparkles, MessageSquareHeart, HeartHandshake, Wand2 } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { pickupLines } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
 import { SpouseGame } from '@/components/spouse-game';
+import { AIGenerator } from '@/components/ai-generator';
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,13 +99,17 @@ export default function Home() {
       </div>
 
       <Tabs defaultValue="lines" className="w-full max-w-3xl flex flex-col items-center">
-        <TabsList className="mb-8 grid w-full max-w-[400px] grid-cols-2 p-1 bg-accent/50 rounded-2xl h-14">
-          <TabsTrigger value="lines" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all">
-            <MessageSquareHeart className="mr-2 h-4 w-4" />
+        <TabsList className="mb-8 grid w-full max-w-[500px] grid-cols-3 p-1 bg-accent/50 rounded-2xl h-14">
+          <TabsTrigger value="lines" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
+            <MessageSquareHeart className="mr-2 h-4 w-4 hidden sm:inline" />
             Pickup Lines
           </TabsTrigger>
-          <TabsTrigger value="game" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all">
-            <HeartHandshake className="mr-2 h-4 w-4" />
+          <TabsTrigger value="ai" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
+            <Wand2 className="mr-2 h-4 w-4 hidden sm:inline" />
+            AI Wingman
+          </TabsTrigger>
+          <TabsTrigger value="game" className="rounded-xl data-[state=active]:bg-primary data-[state=active]:text-primary-foreground h-full transition-all text-xs sm:text-sm">
+            <HeartHandshake className="mr-2 h-4 w-4 hidden sm:inline" />
             Marital Bond
           </TabsTrigger>
         </TabsList>
@@ -191,6 +196,10 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </TabsContent>
+
+        <TabsContent value="ai" className="w-full focus-visible:outline-none">
+          <AIGenerator />
         </TabsContent>
 
         <TabsContent value="game" className="w-full focus-visible:outline-none">
