@@ -29,6 +29,26 @@ const prompt = ai.definePrompt({
   name: 'generateLinePrompt',
   input: { schema: GenerateLineInputSchema },
   output: { schema: GenerateLineOutputSchema },
+  config: {
+    safetySettings: [
+      {
+        category: 'HARM_CATEGORY_HATE_SPEECH',
+        threshold: 'BLOCK_ONLY_HIGH',
+      },
+      {
+        category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+        threshold: 'BLOCK_ONLY_HIGH',
+      },
+      {
+        category: 'HARM_CATEGORY_HARASSMENT',
+        threshold: 'BLOCK_ONLY_HIGH',
+      },
+      {
+        category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+        threshold: 'BLOCK_ONLY_HIGH',
+      },
+    ],
+  },
   prompt: `You are a "Halal Heart Throb" wingman. Your job is to generate a pious, Islamic-themed pickup line that is respectful, clever, and fits the requested mood.
 
 Topic/Keywords: {{{topic}}}
